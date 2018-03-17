@@ -1,0 +1,119 @@
+<!doctype>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>tooltip</title>
+<style type="text/css">
+p{padding:0;margin:0;}
+body
+{
+	padding:60px;
+	line-height:36px;
+	font-size:24px;
+}
+span
+{
+	color:#F66;
+	cursor:pointer;
+	position:relative;
+}
+
+/*tooltip*/
+.mck-tooltip
+{
+	position:absolute;
+	background:#000;
+	padding:3px 10px;
+	font-size:12px;
+	color:#fff;
+	text-align:center;
+	line-height:auto;
+	border-radius:5px;
+	top:0;
+	left:0;
+}
+
+
+.top::after
+{
+	content:'';
+	width:0;
+	height:0;
+	position:absolute;
+	left:45%;
+}
+
+.top::after
+{
+	border-top:4px solid #000;
+	border-right:4px solid transparent;
+	border-left:4px solid transparent;
+	bottom: -4px;
+}
+</style>
+</head>
+
+<body>
+<p>
+YUI是Stardust Promotion所属的女歌手。日本才女歌手YUI，向来作风低调，凭有日版《新不了情》之称的<span id="tt-taiyang">《太阳之歌》</span>火速成名。从小就梦想成为歌手，中学三年级的时候开始在笔记本上写诗。 进入高中，她决心成为歌手，并在街边演唱，当地的音乐学校听了<span id="tt-life">LIFE</span>的录音后，邀请她加入。 YUI选择离开高校，而去音乐学校学习吉他演奏和作曲 并且在2004年3月，YUI参加了<span id="tt-sony">Sony Music</span>举办的SD选拔赛。在自家的蒲团上练习吉他，开始尝试作曲，处女作为<span id="tt-whyme">「Why me」</span>。2013年4月3日凌晨对外正式宣告结成的日本男女4人组乐队《FLOWER FLOWER》。	
+</p>
+
+<script src="tooltip.js"></script>
+<script>
+//获取要添加标签的文字
+var tags=document.getElementsByTagName("span");
+
+for(var i=0;i<tags.length;i++)
+{
+
+    tags[i].onmouseover=function(){
+		if(checkTip(this.id)!=null)
+		{
+			createTip(checkTip(this.id));
+		}	
+	}
+	
+	tags[i].onmouseout=function(){
+		var div=getClassDiv("mck-tooltip");
+
+		if(div[0])
+		{
+			document.getElementsByTagName("body")[0].removeChild(div[0]);
+		}
+	}
+}
+
+//获取具有某个class的元素
+function hasClass(ele,cls) {
+  return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+}
+
+function getClassDiv(className,parent)
+{
+	var array=[];
+	var div;
+	//console.log(typeof(parent)!="undefined");
+	if(!parent)
+	{
+	    div=document.getElementsByTagName("body")[0].getElementsByTagName("*");	
+	}
+	else
+	{
+	    div=document.getElementById(parent).getElementsByTagName("*");
+	}
+	
+	for(var i=0;i<div.length;i++)
+	{
+		if(hasClass(div[i],"mck-tooltip"))
+		{
+			array.push(div[i]);
+		}
+	}
+	
+	return array;
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>手风琴</title>
+	<style type="text/css">
+	.accordion {
+		width: 1150px;
+		margin-top:0px;
+		height:380px;
+		overflow:hidden;
+		position: relative;
+		list-style: none;
+		padding: 0;
+	}
+	.accordion li {
+		position:absolute;
+		top:0;
+		left:0;
+		height: 100%;
+		width: 100%;
+		background-size: cover;
+		background-position: center;
+	}
+	.accordion li p {
+		position:absolute;
+		height: 90%;
+		width: 12px;
+		padding: 10% 20px;
+		background-color: #333333;
+		color:#fff;
+		font-size: 14px;
+		border-left: 4px solid #eee;
+		margin: 0;
+		cursor:  pointer;
+		font-family: "MicroSoft YaHei";
+	}
+	.accordion li p:hover {
+		background:#0070ad;
+	}
+	.accordion li a {
+		display: block;
+		width: 880px;
+		height:380px;
+	}
+	</style>
+</head>
+<body>
+        <ul class="accordion" id="accordion">
+            <li class="active"><p>药品包装解决方案</p><a href="#" ></a></li>
+            <li><p>食物包装解决方案</p><a href="#"></a></li>
+            <li><p>电子包装解决方案</p><a href="#"></a></li>
+            <li><p>书刊印刷解决方案</p><a href="#"></a></li>
+            <li><p>商务印刷解决方案</p><a href="#"></a></li>
+            <li><p>合版印刷解决方案</p><a href="#"></a></li>
+        </ul>	
+
+        <ul class="accordion" id="accordion1">
+            <li class="active"><p>药品包装解决方案</p><a href="#" ></a></li>
+            <li><p>食物包装解决方案</p><a href="#"></a></li>
+            <li><p>电子包装解决方案</p><a href="#"></a></li>
+            <li><p>书刊印刷解决方案</p><a href="#"></a></li>
+            <li><p>商务印刷解决方案</p><a href="#"></a></li>
+            <li><p>合版印刷解决方案</p><a href="#"></a></li>
+        </ul>	
+<script src="https://cdn.bootcss.com/jquery/1.10.1/jquery.min.js"></script>
+<script src="accordion.js"></script>
+<script>
+$(document).ready(function(){
+	$("#accordion").accordion({
+		images: ['images/1.jpg','images/1.jpg','images/1.jpg','images/1.jpg','images/1.jpg'],
+		activeIndex: 0
+	});	
+})
+
+$(document).ready(function(){
+	$("#accordion1").accordion({
+		images: ['images/1.jpg','images/1.jpg','images/1.jpg','images/1.jpg','images/1.jpg'],
+		activeIndex: 0
+	});	
+})
+</script>	
+</body>
+</html>
